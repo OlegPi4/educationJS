@@ -1,0 +1,28 @@
+@import "fonts";
+
+
+body {
+   font-family: pfdintextcondpro;
+   background-color: #666;
+   span {
+      font-size: 36px;
+      color: #506;
+   }
+   background: url("@img/background.jpg") 0 0 no-repeat;
+   h4 {
+      font-family: Oswald;
+      font-weight: 600;
+      font-size: 32px;
+   }
+}
+@media (max-width: 768px) {
+   span {
+      font-size: 18px;
+   }
+}
+
+@media (max-width: 768px) {
+   body {
+      background-color: #a66;
+   }
+}
