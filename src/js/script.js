@@ -1,19 +1,53 @@
+'use strict';
+// задача 1
+// for (let i = 5; i <= 10; i++) {
+//    console.log(i);
+// }
 
-const numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
+// задача 2
 
-const personalMovieDB = {
-   count: numberOfFilms,
-   movies: {},
-   actors: {},
-   genres: [],
-   privat: false
-};
+// label: for (let i = 20; i >= 10; i--) {
+//    console.log(i);
+//    if (i == 14) {
+//       break label;
+//    }
+// }
 
-const a = prompt('Один из последних просмотреных фильмов ?', ''),
-   b = prompt('На сколько оцените его ?', ''),
-   c = prompt('Один из последних просмотреных фильмов ?', ''),
-   d = prompt('На сколько оцените его ?', '');
+// задача 3
 
-personalMovieDB.movies[a] = b;
-personalMovieDB.movies[c] = d;
-console.log(personalMovieDB);
+// for (let i = 1; i <= 10; i++) {
+//    if (i % 2 == 0) {
+//       console.log(i);
+//    }
+// }
+
+//  задача з вариант 2
+// for (let i = 2; i <= 10; i += 2) {
+//    console.log(i);
+//  }
+
+// for (let i = 2; i <= 16; i++) {
+//    if (i % 2 === 0) {
+//       continue;
+//    } else {
+//       console.log(i);
+//    }
+// }
+
+// Задача 4
+// let i = 2;
+
+// while (i < 16) {
+//    if (i % 2 === 1) {
+//       console.log(i);
+//    }
+//    i++;
+// }
+
+//  Задача 5
+
+const myArray = [];
+for (let i = 0; i <= 5; i++) {
+   myArray[i] = i + 5;
+}
+console.log(myArray);
