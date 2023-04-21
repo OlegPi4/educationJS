@@ -1,53 +1,53 @@
 'use strict';
+
+// циклы Продвинутые задачи
 // задача 1
-// for (let i = 5; i <= 10; i++) {
-//    console.log(i);
+// const arr = [3, 5, 8, 16, 20, 23, 50];
+// const result = [];
+// let leng = arr.length;
+
+// for (let i = 0; i <= leng - 1; i++) {
+//    result[i] = arr[i];
 // }
+// console.log(`длина исходного масива arr = ${leng}`);
+// console.log(result);
+// console.log(result.length);
 
-// задача 2
-
-// label: for (let i = 20; i >= 10; i--) {
-//    console.log(i);
-//    if (i == 14) {
-//       break label;
-//    }
-// }
-
-// задача 3
-
-// for (let i = 1; i <= 10; i++) {
-//    if (i % 2 == 0) {
-//       console.log(i);
-//    }
-// }
-
-//  задача з вариант 2
-// for (let i = 2; i <= 10; i += 2) {
-//    console.log(i);
-//  }
-
-// for (let i = 2; i <= 16; i++) {
-//    if (i % 2 === 0) {
-//       continue;
+// Задача 2
+// const data = [5, 10, 'Shopping', 20, 'Homework'];
+// let leng = data.length;
+// for (let i = 0; i <= leng - 1; i++) {
+      
+//    if (typeof(data[i]) === 'number') {
+//       data[i] = data[i] * 2;
 //    } else {
-//       console.log(i);
+//       data[i] = data[i] + ' - done';
 //    }
 // }
+// console.log(data);
 
-// Задача 4
-// let i = 2;
-
-// while (i < 16) {
-//    if (i % 2 === 1) {
-//       console.log(i);
-//    }
-//    i++;
+//Задача 3
+// const data = [5, 10, 'Shopping', 20, 'Homework'];
+// let leng = data.length - 1;
+// const result = [];
+// for (let i = 0; i <= leng; i++) {
+//    result[leng - i] = data[i];
 // }
+// console.log(result);
 
-//  Задача 5
 
-const myArray = [];
-for (let i = 0; i <= 5; i++) {
-   myArray[i] = i + 5;
+//  Рисуем елочку
+const lines = 5;
+let result = '';
+
+console.log(result);
+for (let i = 0; i <= lines; i++) {
+   for (let j = 0; j < lines - i; j++) {
+      result += ' '; 
+   }
+   for (let k = 0; k < (i * 2 + 1); k ++) {
+      result += '*';
+   }
+   result += '\n' ;
 }
-console.log(myArray);
+console.log(result);
