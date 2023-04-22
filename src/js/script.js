@@ -1,53 +1,55 @@
 'use strict';
 
-// циклы Продвинутые задачи
-// задача 1
-// const arr = [3, 5, 8, 16, 20, 23, 50];
-// const result = [];
-// let leng = arr.length;
+let indicatOne = 'yes',
+   indicatTwo = 'not';
+const numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
 
-// for (let i = 0; i <= leng - 1; i++) {
-//    result[i] = arr[i];
-// }
-// console.log(`длина исходного масива arr = ${leng}`);
-// console.log(result);
-// console.log(result.length);
+console.log(indicatOne || indicatTwo);
+const personalMovieDB = {
+   count: numberOfFilms,
+   movies: {},
+   actors: {},
+   genres: [],
+   privat: false
+};
 
-// Задача 2
-// const data = [5, 10, 'Shopping', 20, 'Homework'];
-// let leng = data.length;
-// for (let i = 0; i <= leng - 1; i++) {
-      
-//    if (typeof(data[i]) === 'number') {
-//       data[i] = data[i] * 2;
+for (let i = 0; i < 2; i++) {
+   const a = prompt('Один из последних просмотреных фильмов ?', ''),
+      b = prompt('На сколько оцените его ?', '');
+   
+   if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+      personalMovieDB.movies[a] = b;
+      console.log('done');
+   } else {
+      alert('Введите корректно!!');
+      i--;
+   }
+}
+// let i = 0;
+// while (i < 2) {
+//    const a = prompt('Один из последних просмотреных фильмов ?', ''),
+//       b = prompt('На сколько оцените его ?', '');
+   
+//    if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+//       personalMovieDB.movies[a] = b;
+//       console.log('done');
+//       i++;
 //    } else {
-//       data[i] = data[i] + ' - done';
+//       alert('Введите корректно!!');
+      
 //    }
 // }
-// console.log(data);
-
-//Задача 3
-// const data = [5, 10, 'Shopping', 20, 'Homework'];
-// let leng = data.length - 1;
-// const result = [];
-// for (let i = 0; i <= leng; i++) {
-//    result[leng - i] = data[i];
-// }
-// console.log(result);
 
 
-//  Рисуем елочку
-const lines = 5;
-let result = '';
+let numbSeen = personalMovieDB.count;
 
-console.log(result);
-for (let i = 0; i <= lines; i++) {
-   for (let j = 0; j < lines - i; j++) {
-      result += ' '; 
-   }
-   for (let k = 0; k < (i * 2 + 1); k ++) {
-      result += '*';
-   }
-   result += '\n' ;
+if (numbSeen < 10) { 
+   alert('Просмотрено мало фильмов');
+} else if ( numbSeen >= 10 && numbSeen < 30) {
+   alert('Вы класический зритель !');
+} else if (numbSeen >= 30) {
+   alert('Киноман ! ! !');
+} else {
+   alert('Произошла ошибка !');
 }
-console.log(result);
+console.log(personalMovieDB);
