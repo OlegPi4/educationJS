@@ -21,7 +21,7 @@ const personalMovieDB = {
 
 function rememberMyFilms() {
    for (let i = 0; i < 2; i++) {
-      const a = prompt('Один из последних просмотреных фильмов ?', ''),
+      const a = prompt('Один из последних просмотреных фильмов ?', '').trim(),
          b = prompt('На сколько оцените его ?', '');
       
       if (a != null && b != null && a != '' && b != '' && a.length < 50) {
@@ -64,3 +64,16 @@ function writeYourGenres() {
 
 writeYourGenres();
 console.log(personalMovieDB);  
+
+const test = {
+   name: 'num01',
+   nameAppl: 'doom',
+   version: 'v1.0',
+   dateTest: {
+      d01: 'n02',
+      d02: 14,
+      d03: 'snake'
+   } 
+};
+
+console.log(Object.keys(test));
