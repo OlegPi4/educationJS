@@ -1,79 +1,78 @@
 'use strict';
 
-let numberOfFilms;
-
-function start() {
-   numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
-
-   while (numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)) {
-      numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
-   }
-}
-start();
 
 const personalMovieDB = {
-   count: numberOfFilms,
+   count: 0,
    movies: {},
    actors: {},
    genres: [],
-   privat: false
-};
-
-function rememberMyFilms() {
-   for (let i = 0; i < 2; i++) {
-      const a = prompt('Один из последних просмотреных фильмов ?', '').trim(),
-         b = prompt('На сколько оцените его ?', '');
-      
-      if (a != null && b != null && a != '' && b != '' && a.length < 50) {
-         personalMovieDB.movies[a] = b;
+   privat: false,
+   start: function () {
+      personalMovieDB.count = +prompt('Сколько фильмов вы уже посмотрели?', '');
+      while (personalMovieDB.count == '' || personalMovieDB.count == null || isNaN(personalMovieDB.count)) {
+         personalMovieDB.count = +prompt('Сколько фильмов вы уже посмотрели?', '');
+      }
+   },
+   rememberMyFilms: function () {
+      for (let i = 0; i < 2; i++) {
+         const a = prompt('Один из последних просмотреных фильмов ?', '').trim(),
+            b = prompt('На сколько оцените его ?', '');
+         
+         if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+            personalMovieDB.movies[a] = b;
+         } else {
+            alert('Введите корректно!!');
+            i--;
+         }
+      }
+   },
+   detectPersonalLevel: function () {
+      let numbSeen = personalMovieDB.count;
+      if (numbSeen < 10) {
+         alert('Просмотрено мало фильмов');
+      } else if ( numbSeen >= 10 && numbSeen < 30) {
+         alert('Вы класический зритель !');
+      } else if (numbSeen >= 30) {
+         alert('Киноман ! ! !');
       } else {
-         alert('Введите корректно!!');
-         i--;
+         alert('Произошла ошибка !');
+      }
+   },
+   showMyDB: function(hidden) {
+      if (!hidden) {
+         console.log(personalMovieDB);      
+      }
+   },
+   writeYourGenres: function () {
+      for (let i = 0; i < 1; i++) {
+         let answ = prompt('Введите через запятую ваши любимые жанры').toLowerCase();
+         if (answ == '' || answ == null) {
+            console.log('Введите корректно данные !');
+            i--;
+         } else {
+            personalMovieDB.genres = answ.split(', ');
+         }
+      }
+      personalMovieDB.genres.forEach((item, i) => {
+         console.log(`Любимый жанр ${i+1} - это ${item}`);
+      });
+   },
+   toggleVisibleMyDB: function() {
+      if (personalMovieDB.privat) {
+         personalMovieDB.privat = false;
+      } else {
+         personalMovieDB.privat = true;
       }
    }
    
-}
-rememberMyFilms();
-
-function detectPersonalLevel() {
-   let numbSeen = personalMovieDB.count;
-   if (numbSeen < 10) {
-      alert('Просмотрено мало фильмов');
-   } else if ( numbSeen >= 10 && numbSeen < 30) {
-      alert('Вы класический зритель !');
-   } else if (numbSeen >= 30) {
-      alert('Киноман ! ! !');
-   } else {
-      alert('Произошла ошибка !');
-   }
-} 
-detectPersonalLevel();
-
-function showMyDB(hidden) {
-   if (!hidden) {
-      console.log(personalMovieDB);      
-   }
-}
-showMyDB(personalMovieDB.privat);
-
-function writeYourGenres() {
-   for (let i = 0; i <= 2; i++) {
-      personalMovieDB.genres[i] = prompt(`Ваш любимый жанр под номером ${i+1}`);
-   }
-}
-
-writeYourGenres();
-console.log(personalMovieDB);  
-
-const test = {
-   name: 'num01',
-   nameAppl: 'doom',
-   version: 'v1.0',
-   dateTest: {
-      d01: 'n02',
-      d02: 14,
-      d03: 'snake'
-   } 
 };
 
-console.log(Object.keys(test));
+// 
+personalMovieDB.start();
+personalMovieDB.rememberMyFilms();
+personalMovieDB.detectPersonalLevel();
+personalMovieDB.writeYourGenres();
+//personalMovieDB.toggleVisibleMyDB();
+personalMovieDB.showMyDB(personalMovieDB.privat);
+
+
