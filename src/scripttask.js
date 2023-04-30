@@ -1,43 +1,28 @@
 'use strict';
 
 
-const shoppingMallData = {
-   shops: [
-      {
-         width: 10,
-         length: 5
-      },
-      {
-         width: 15,
-         length: 7
-      },
-      {
-         width: 20,
-         length: 5
-      },
-      {
-         width: 8,
-         length: 10
-      }
-   ],
-   height: 5,
-   moneyPer1m3: 30,
-   budget: 50000
-};
+const students = ['Peter', 'Andrew', 'Ann', 'Mark', 'Josh', 'Sandra', 'Cris', 'Test', 'Bernard', 'Takesi', 'Sam'];
 
-function isBudgetEnough(data) {
-   let allSq = 0;
-   for (let el in data.shops) {
-      let wid = data.shops[el].width;
-      let len = data.shops[el].length;
-      allSq += wid * len;
-   }
-   let allVol = allSq * data.height;
+
+function sortStudentsByGroups(arr) {
+   let newArr = [];
    
-   if (allVol * data.moneyPer1m3 <= data.budget) {
-      console.log('Бюджета достаточно');
-   } else {
-      console.log('Бюджета недостаточно');
+   let arr1 = arr.sort();
+   let messag = 'Оставшиеся студенты:';
+   for (let i = 0; i <= arr1.length; i += 3) {
+      if (i + 2 < arr1.length) {
+         newArr.push([arr1[i], arr1[i + 1], arr1[i + 2]]);
+      } else {
+         if (arr1[i] == undefined) {
+            newArr.push(`${messag} -`);
+         } else {
+            newArr.push(`${messag} ${arr1.splice(i, arr1.length - i).join(', ')}`);
+         }
+         
+      }
    }
+   console.log(newArr);
+   return newArr;
+   
 }
-isBudgetEnough(shoppingMallData);
+sortStudentsByGroups(students);
